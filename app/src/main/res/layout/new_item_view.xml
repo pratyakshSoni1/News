@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    
+    <data>
+
+        <variable
+            name="newsResponse"
+            type="com.smartphonecodes.news.data.Article" />
+
+        <variable
+            name="clickListener"
+            type="com.smartphonecodes.news.data.NewsClickListener" />
+
+
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        app:cardBackgroundColor="@color/cardColor"
+        android:layout_margin="8dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="300dp"
+            android:layout_height="500dp"
+            android:id="@+id/news_baseLayout"
+            android:layout_margin="8dp">
+
+            <TextView
+                android:id="@+id/newsTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/anton"
+                android:onClick="@{()->clickListener.openNews()}"
+                android:text="@{newsResponse.title}"
+                android:textAlignment="textStart"
+                android:textColor="@color/colorText"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Lucifer:Season 04 EP 01" />
+
+
+            <TextView
+                android:id="@+id/newsSource"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/average_sans"
+                android:text="@{newsResponse.source.name}"
+                android:textColor="@color/colorText"
+                android:textAlignment="textStart"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="@id/newsTitle"
+                app:layout_constraintTop_toBottomOf="@id/newsTitle"
+                tools:text="Lucifer" />
+
+            <TextView
+                android:id="@+id/newsDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/average_sans"
+                android:textColor="@color/colorText"
+                android:layout_marginStart="8dp"
+                android:text="@{newsResponse.publishedAt}"
+                android:textAlignment="textStart"
+                android:textSize="12sp"
+                app:layout_constraintStart_toEndOf="@id/newsSource"
+                app:layout_constraintBottom_toBottomOf="@id/newsSource"
+                tools:text="Lucifer" />
+
+
+            <TextView
+                android:id="@+id/newsDescription"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/average_sans"
+                android:text="@{newsResponse.description}"
+                android:textColor="@color/colorText"
+                android:textAlignment="textStart"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@id/newsTitle"
+                app:layout_constraintStart_toStartOf="@id/newsTitle"
+                app:layout_constraintTop_toBottomOf="@id/newsSource"
+                tools:text="Lucifer:Season 04 EP 01" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
